@@ -1,15 +1,18 @@
 package com.example.customerservice;
 
 import com.example.customerservice.builder.CustomerBuilder;
+import com.example.customerservice.config.GlobalConfig;
 import com.example.customerservice.entity.Customer;
 import com.example.customerservice.repository.CustomerRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 import java.util.List;
 
 @SpringBootApplication
+@EnableConfigurationProperties(GlobalConfig.class)
 public class CustomerServiceApplication implements CommandLineRunner {
 
     private final CustomerRepository customerRepository;
