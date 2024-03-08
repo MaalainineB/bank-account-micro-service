@@ -33,9 +33,10 @@ public class AccountServiceApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        final Long[] accountId = {1L};
         customerRestClient.getAllCustomers().forEach(customer -> {
             Account account1 = new AccountBuilder()
-                    .withAccountId(1L)
+                    .withAccountId(accountId[0]++)
                     .withAccountNumber(UUID.randomUUID().toString())
                     .withBalance(Math.random() * 12000)
                     .withAccountType(AccountType.CURRENT_ACCOUNT)
@@ -45,7 +46,7 @@ public class AccountServiceApplication implements CommandLineRunner {
                     .Build();
 
             Account account2 = new AccountBuilder()
-                    .withAccountId(2L)
+                    .withAccountId(accountId[0]++)
                     .withAccountNumber(UUID.randomUUID().toString())
                     .withBalance(Math.random() * 64558)
                     .withAccountType(AccountType.SAVING_ACCOUNT)
